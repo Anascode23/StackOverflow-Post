@@ -25,8 +25,12 @@ public class StackOverFlowPost
     private int Downvotes { get { return _downvote; } set { _downvote = value; } }
     public StackOverFlowPost(string title, string description, DateTime created)
     {
-        Title = title;
-        Descrption = description;
+        _title = title;
+         if(!string.IsNullOrEmpty(Title))
+    throw new ArgumentException(Title);
+        _descrption = description;
+        if(!string.IsNullOrEmpty(Descrption))
+    throw new ArgumentException(Descrption);
         Created = created;
     }
     public void Post()
